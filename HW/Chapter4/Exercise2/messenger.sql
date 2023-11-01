@@ -7,7 +7,7 @@ CREATE TABLE `users` (
   `profile_message` VARCHAR(128) NOT NULL,
   `deleted` TINYINT(1) NOT NULL DEFAULT 0,
   `date_joined` DATETIME NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `channels` (
@@ -19,8 +19,7 @@ CREATE TABLE `channels` (
   `deleted` TINYINT(1) NOT NULL DEFAULT 0,
   `date_created` DATETIME NOT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`created-by`)
-  REFERENCES `users`(`id`) ON DELETE CASCADE
+  FOREIGN KEY (`created_by`) REFERENCES `users`(`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `chats` (
@@ -30,7 +29,7 @@ CREATE TABLE `chats` (
   `channel` INT NOT NULL,
   `date_created` DATETIME NOT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`created-by`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`created_by`) REFERENCES `users`(`id`) ON DELETE CASCADE,
   FOREIGN KEY (`channel`) REFERENCES `channels`(`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -54,3 +53,4 @@ CREATE TABLE `blocks` (
   FOREIGN KEY (`blocked_user`) REFERENCES `users`(`id`) ON DELETE CASCADE
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
