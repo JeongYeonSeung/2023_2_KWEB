@@ -6,7 +6,7 @@ const readdir = util.promisify(fs.readdir);
 const stat = util.promisify(fs.stat);
 
 /** 현재 작업 디렉토리를 스크립트 파일의 디렉토리로 변경 */
-process.chdir(__dirname);  
+process.chdir(__dirname);
 const testPath = "./test";
 
 /** path를 받아서 search */

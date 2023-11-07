@@ -18,7 +18,7 @@ app.get('/factorial', (req, res) => {
 });
 
 app.get('/factorial/:number', (req, res) => {
-  const { number } = req.params;
+  const { number } = req.params; // const number = req.params.number;
   const parsedNumber = parseInt(number, 10);
   res.send(`factorial of ${parsedNumber} = ${factorial(parsedNumber)}`);
 });
